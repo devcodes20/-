@@ -4,18 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Xenith Vault</title>
+    <link rel="icon" type="image/png" href="https://a.top4top.io/p_3642arlta1.png" />
     <link rel="stylesheet" href="style.css" />
+    
   </head>
-
   <body>
     <canvas id="starsCanvas"></canvas>
 
     <header>
       <div class="logo-wrap">
-        <div class="logo-box"></div>
-        <span class="site-name">Xenith Vault</span>
+        <div class="logo-box">
+          
+        </div>
+        <span class="site-name">ThailandCodes</span>
       </div>
-
       <nav>
         <button class="nav-btn active" data-tab="cv2"><span>Components v2</span></button>
         <button class="nav-btn" data-tab="webhook"><span>Webhook Sender</span></button>
@@ -23,6 +25,7 @@
     </header>
 
     <main>
+
       <section class="tool-section active" id="cv2">
         <div class="section-header">
           <h2>Discord Components v2</h2>
@@ -33,12 +36,12 @@
           <div class="cv2-controls">
             <div class="cv2-palette">
               <span class="palette-label">ضيف مكون</span>
-
               <div class="palette-btns">
                 <button class="palette-btn" data-type="text">📝 نص</button>
                 <button class="palette-btn" data-type="actionRow">🔘 أزرار</button>
                 <button class="palette-btn" data-type="select">📋 قائمة</button>
                 <button class="palette-btn" data-type="separator">➖ فاصل</button>
+                <button class="palette-btn" data-type="media">🖼️ صورة</button>
                 <button class="palette-btn" data-type="section">📌 Section</button>
               </div>
             </div>
@@ -50,14 +53,11 @@
 
           <div class="cv2-preview-col">
             <div class="cv2-preview-label">معاينة Discord</div>
-
             <div class="cv2-discord-bg">
               <div class="dc-message">
+                <img src="https://a.top4top.io/p_3642arlta1.png" class="dc-avatar" />
                 <div class="dc-message-body">
-                  <div class="dc-username">
-                    Bot <span class="dc-bot-badge">BOT</span>
-                  </div>
-
+                  <div class="dc-username">Xenith Vault <span class="dc-bot-badge">BOT</span></div>
                   <div class="dc-container" id="cv2Preview">
                     <div class="dc-empty-hint">ضيف مكونات الأول</div>
                   </div>
@@ -65,6 +65,7 @@
               </div>
             </div>
           </div>
+
         </div>
 
         <div class="cv2-code-wrap">
@@ -72,7 +73,6 @@
             <span>الكود المولّد — Discord.js v14</span>
             <button class="copy-btn" id="cv2CopyBtn">نسخ</button>
           </div>
-
           <pre class="cv2-code" id="cv2Code">ضيف مكونات الأول عشان يتولد الكود</pre>
         </div>
       </section>
@@ -80,61 +80,79 @@
       <section class="tool-section" id="webhook">
         <div class="section-header">
           <h2>Webhook Sender</h2>
-          <p>اختبر الـ Webhook بسهولة</p>
+          <p>ابني الـ Webhook واختبره على طول من غير ما تكتب كود</p>
         </div>
 
         <div class="webhook-layout">
           <div class="webhook-form-col">
+
             <div class="tool-card">
               <div class="control-group">
                 <label>Webhook URL</label>
-                <input id="whUrl" type="text" />
+                <input type="text" id="whUrl" placeholder="https://discord.com/api/webhooks/..." />
               </div>
 
               <div class="control-group">
-                <label>اسم المرسل</label>
-                <input id="whUsername" type="text" />
+                <label>اسم المرسل (اختياري)</label>
+                <input type="text" id="whUsername" placeholder="اسم البوت" />
               </div>
             </div>
 
             <div class="tool-card">
+              <div class="card-title">إعدادات الـ Embed</div>
+
               <div class="control-group">
                 <label>العنوان</label>
-                <input id="whTitle" type="text" />
+                <input type="text" id="whTitle" placeholder="عنوان الـ embed" />
               </div>
 
               <div class="control-group">
                 <label>الوصف</label>
-                <textarea id="whDesc" rows="3"></textarea>
+                <textarea id="whDesc" placeholder="نص الـ embed..." rows="3"></textarea>
+              </div>
+
+              <div class="two-col">
+                <div class="control-group">
+                  <label>اللون</label>
+                  <div class="color-row">
+                    <input type="color" id="whColorPicker" value="#aa00ff" />
+                    <input type="text" id="whColor" value="#AA00FF" placeholder="#AA00FF" />
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label>Footer</label>
+                  <input type="text" id="whFooter" placeholder="نص الـ footer" />
+                </div>
               </div>
 
               <div class="control-group">
-                <label>Footer</label>
-                <input id="whFooter" type="text" />
+                <label>رابط الصورة (اختياري)</label>
+                <input type="text" id="whImage" placeholder="https://..." />
               </div>
             </div>
 
-            <button class="main-btn" id="whSendBtn">إرسال</button>
+            <button class="main-btn" id="whSendBtn">ابعت للـ Webhook ↗️</button>
             <div id="whStatus" class="wh-status"></div>
           </div>
 
           <div class="webhook-preview-col">
-            <div class="cv2-preview-label">معاينة</div>
+            <div class="cv2-preview-label">معاينة مباشرة</div>
 
             <div class="cv2-discord-bg">
               <div class="dc-message">
                 <div class="dc-message-body">
 
                   <div class="dc-username" id="whPreviewName">
-                    Bot <span class="dc-bot-badge">BOT</span>
+                    Xenith Vault <span class="dc-bot-badge">BOT</span>
                   </div>
 
-                  <div class="dc-embed">
+                  <div class="dc-embed" id="whEmbed">
                     <div class="dc-embed-bar" id="whEmbedBar"></div>
-
                     <div class="dc-embed-content">
                       <div class="dc-embed-title" id="whPreviewTitle"></div>
                       <div class="dc-embed-desc" id="whPreviewDesc"></div>
+                      <img class="dc-embed-image" id="whPreviewImg" src="" style="display:none" />
                       <div class="dc-embed-footer" id="whPreviewFooter"></div>
                     </div>
                   </div>
@@ -146,11 +164,26 @@
           </div>
         </div>
       </section>
+
     </main>
 
     <footer>
+      
       <span>Powered By yazan</span>
     </footer>
+
+    <div class="cv2-modal-overlay" id="cv2Modal">
+      <div class="cv2-modal-box">
+        <div class="cv2-modal-header">
+          <span id="cv2ModalTitle">ضيف مكون</span>
+          <button class="cv2-modal-close" id="cv2ModalClose">✕</button>
+        </div>
+        <div class="cv2-modal-body" id="cv2ModalBody"></div>
+        <div class="cv2-modal-footer">
+          <button class="main-btn" id="cv2ModalSave">تمام</button>
+        </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
